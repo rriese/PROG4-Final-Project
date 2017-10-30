@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery Reviews</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
+        <style>
+            #loading-indicator {
+            }
+        </style>
+
+        <style>
+            table {
+                border: 2px solid #dddddd;
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 2px solid #dddddd;
+                text-align: center;
+                padding: 8px;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+
+        <div>
+            <br>&nbsp;&nbsp;&nbsp;Cidades:&nbsp;
+            <select id="comboCidade" name="comboCidade" size="1">
+                <option id="op1" value="1">Joinville</option>
+                <option id="op2" value="2">Jaraguá</option>
+            </select>&nbsp;&nbsp;
+            <img src="assets/images/ajax-loader.gif" id="loading-indicator" style="display:none" alt=""/> 
+            <br><br>&nbsp;&nbsp;
+            <button id="btnAtualizarCidade" type="button">Atualizar Cidades</button>
+            &nbsp;&nbsp;&nbsp;<a href="ajax/cidade/listar">ajax/cidade/listar</a>
+        </div>
+        <br>
+        <div>
+            <table id="tabelaCliente">
+            </table>
+        </div>
+
+
+        <!-- CORE JAVASCRIPT LYBRARIES... -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <script>
+            var mostrarMensagem = function (msg) {
+                alert(msg);
+            };
+
+            var adicionarOptionComboCidade = function (id, nome) {
+                $("#comboCidade").append(new Option(nome, id));
+            };
+
+            var mostrarCidades = function (result) {
+                var lst = "Lista de Capitais:";
+                $.each(result, function (index, obj) {
+                    lst += "\n" + obj.nome;
+                });
+                alert(lst);
+            };
+
+            var atualizarComboBoxCidade = function (result) {
+                console.log(result);
+                var combo = $("#comboCidade");
+                combo.empty();
+                $.each(result, function (index, obj) {
+                    combo.append(new Option(obj.name, obj.id));
+                });
+            };
+
+            var criarTabela = function (result) {
+                console.log(result);
+                var tabela = $("#tabelaCliente");
+                tabela.empty();
+                tabela.append('<thead><tr><th>Id<th>Nome<th>Login<th>Senha');
+                $.each(result, function (index, obj) {
+                    tabela.append(`<tr><td> ${obj.id} <td> ${obj.name} <td> ${obj.login}<td> ${obj.passwd}`);
+                });
+            };
+
+            $(document).ready(function () {
+
+                $("#comboCidade").change(function () {
+                    var combo = $("#comboCidade");
+                    var selectedId = combo.val();
+                    var selectedText = combo.find(":selected").text();
+                    alert("id=" + selectedId + " text=" + selectedText);
+                });
+
+                $("#btnAtualizarCidade").click(function () {
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        url: 'ajax/cidade/listar',
+                        data: 'param1=23&param2=67',
+                        cache: false,
+                        success: function (result) {
+                            console.log(result);
+                            //mostrarCidades(result);
+                            atualizarComboBoxCidade(result);
+                            criarTabela(result);
+                        },
+                        error: function () {
+                            alert("Não consegui fazer a chamada Ajax para /ajax/cidade/listar!");
+                        }
+                    });
+                });
+
+                adicionarOptionComboCidade("op3", "Guaramirin");
+                adicionarOptionComboCidade("op4", "Schroeder");
+                //mostrarMensagem("Montei todos objetos!");
+
+            });
+
+            $(document).ajaxSend(function (event, request, settings) {
+                $('#loading-indicator').show();
+            });
+
+            $(document).ajaxComplete(function (event, request, settings) {
+                $('#loading-indicator').hide();
+            });
+
+        </script>        
+    </body>
+</html>
