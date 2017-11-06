@@ -10,10 +10,13 @@ $(document).ready(function () {
                 passwd: password
             },
             success: function (result) {
-                console.log(result);
-                $('#usuario').addClass(" has-error");
-                $('#senha').addClass(" has-error");
-                $('#teste').append(result);
+                if (result === 'Success') {
+                    location.href = "InitialPage";
+                } else {
+                    $('#usuario').addClass(" has-error");
+                    $('#senha').addClass(" has-error");
+                    $('#teste').append(result);
+                }
             }
         });
     });
