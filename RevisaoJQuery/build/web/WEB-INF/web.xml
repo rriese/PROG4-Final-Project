@@ -12,6 +12,10 @@
         <servlet-name>LogOutServlet</servlet-name>
         <servlet-class>org.ftd.educational.revisao.servlet.session.LogOutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Profile</servlet-name>
+        <servlet-class>org.ftd.educational.revisao.servlet.client.UserServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowParameterServlet</servlet-name>
         <url-pattern>/ShowParameterServlet</url-pattern>
@@ -24,9 +28,14 @@
         <servlet-name>LogOutServlet</servlet-name>
         <url-pattern>/LogOutServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Profile</servlet-name>
+        <url-pattern>/Profile</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-</web-app>
+org.ftd.educational.revisao.filter.web;
+    </web-app>

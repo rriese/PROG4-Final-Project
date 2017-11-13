@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rafael.riese.CATOLICASC/Documents/NetBeansProjects/RevisaoJQuery/src/java/org/ftd/educational/revisao/servlet/session/LogOutServlet.java</file>
-            <file>file:/C:/Users/rafael.riese.CATOLICASC/Documents/NetBeansProjects/RevisaoJQuery/src/java/org/ftd/educational/revisao/servlet/initial/InitialPage.java</file>
+            <file>file:/C:/Users/rafael.riese.CATOLICASC/Documents/NetBeansProjects/RevisaoJQuery/src/java/org/ftd/educational/revisao/servlet/session/AuthenticateControllerServlet.java</file>
+            <file>file:/C:/Users/rafael.riese.CATOLICASC/Documents/NetBeansProjects/RevisaoJQuery/web/WEB-INF/views/users.jsp</file>
+            <file>file:/C:/Users/rafael.riese.CATOLICASC/Documents/NetBeansProjects/RevisaoJQuery/web/clienteLogin.jsp</file>
             <file>file:/C:/Users/rafael.riese.CATOLICASC/Documents/NetBeansProjects/RevisaoJQuery/web/WEB-INF/views/index.jsp</file>
-            <file>file:/C:/Users/rafael.riese.CATOLICASC/Documents/NetBeansProjects/RevisaoJQuery/src/java/org/ftd/educational/revisao/filter/web/MainFilter.java</file>
+            <file>file:/C:/Users/rafael.riese.CATOLICASC/Documents/NetBeansProjects/RevisaoJQuery/src/java/org/ftd/educational/revisao/servlet/client/UserServlet.java</file>
         </group>
     </open-files>
 </project-private>

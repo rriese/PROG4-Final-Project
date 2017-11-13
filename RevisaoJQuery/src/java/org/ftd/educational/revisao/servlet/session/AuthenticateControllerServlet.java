@@ -46,8 +46,8 @@ public class AuthenticateControllerServlet extends HttpServlet {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         UserDAO dao = new UserDAO(factory);
         User user = null;
-        String login = request.getParameter("login");
-        String senha = request.getParameter("passwd");
+        String login = request.getParameter("usuario");
+        String senha = request.getParameter("senha");
         try {
             user = dao.authenticate(login, senha);
         } catch (Exception ex) {
@@ -57,13 +57,14 @@ public class AuthenticateControllerServlet extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("userid", Long.toString(user.getId()));
             session.setAttribute("username", user.getName());
-            response.getWriter().write("Success");
+            request.getRequestDispatcher("WEB-INF/views/index.jsp").forward(request, response);
         } else {
             StringBuilder strB = new StringBuilder();
             strB.append("<div class=\"alert alert-danger\">");
-            strB.append(" <strong>Erro!</strong> Login e/ou senha incorretos.");
+            strB.append("<center><strong>Erro!</strong> Login e/ou senha incorretos.</center>");
             strB.append("</div>");
-            response.getWriter().write(strB.toString());
+            request.setAttribute("msg", strB);
+            request.getRequestDispatcher("clienteLogin.jsp").forward(request, response);
         }
     }
 
