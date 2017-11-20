@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author rafael.riese
  */
-@WebFilter(filterName = "MainFilter", urlPatterns = {"/WEB-INF/**"})
+@WebFilter(filterName = "MainFilter", urlPatterns = {"/mvcmenu", "/WEB-INF/**"})
 public class MainFilter implements Filter {
     
     private static final boolean debug = true;

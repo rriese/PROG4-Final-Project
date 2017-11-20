@@ -15,6 +15,7 @@
         </style>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
+        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </head>
@@ -56,6 +57,10 @@
                                             <button type="submit" id="btnLogin" class="btn btn-lg btn-block botoes">
                                                 Login
                                             </button>
+                                            <p>
+                                                É novo aqui?
+                                                <a href="ClienteCadastro"><b>Crie sua conta</b></a>
+                                            </p>
                                         </div>
                                         ${msg}
                                         <center>

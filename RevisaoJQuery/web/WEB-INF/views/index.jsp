@@ -23,7 +23,7 @@
                         <span class="icon-bar corActive">
                         </span>
                     </button>
-                    <a class="navbar-brand" href="#"><p class="tituloMyStreet"><b>Rieses's Shop</b></p></a>
+                    <a class="navbar-brand" href="#"><p class="tituloMyStreet"><b>Riese's Shop</b></p></a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
@@ -31,7 +31,7 @@
                             <a href="#"><p class="corMenuTexto"><span class="glyphicon glyphicon-home glyPosiMenu"></span> Home</p></a>
                         </li>
                         <li class="corActive">
-                            <a href=""><p class="corActiveTexto"><span class="glyphicon glyphicon-user glyPosiMenu"></span> Perfil</p></a>
+                            <a href=""><p class="corActiveTexto"><span class="glyphicon glyphicon-user glyPosiMenu"></span> Bem Vindo(a) ${userName}</p></a>
                         </li>
                     </ul>
                 </div>
@@ -42,7 +42,7 @@
                 <div id="conteudo" class="col-md-12">
                     <div class="thumbnail">
                         <div class="caption">
-                            <a href="users">
+                            <a href="mvcmenu?do=showclient">
                                 <button type="button" class="btn btn-default btn-lg btn-block glyphicon glyphicon-user">
                                     Clientes
                                 </button>

@@ -1,0 +1,722 @@
+img {
+    width: 100%;
+}
+
+body{
+    font-family: calibri;
+    font-size: 16px;
+}
+
+a{
+    text-decoration: blink !important;
+    color: black !important;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.wrapper {
+    padding: 40px 0;
+    background-color: #f5f5f5;
+}
+
+.artigo {
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+}
+.artigo:first-child {
+    padding-top: 0;
+    border-top: 0;
+}
+
+
+footer {
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+}
+
+.copyright {
+    padding: 5px 0;
+    background-color: #c5c2c2;
+    color: #9e9b9b;
+    margin-top: 25px;
+}
+.copyright p {
+    margin: 0; 
+}
+
+p{
+    margin: 0 0 0px;
+}
+
+.larguraGrande{
+    width: 66% !important;
+
+}
+
+.TituloComFoto{
+    height: 70px;
+    padding-left: 25px;
+
+
+}
+
+.imagemPessoa{
+    width: 55px;
+    float: left;
+    margin-right: 15px;
+}
+
+.imagensCaroussel{
+    width: 100%;
+    height: 400px !important;
+}
+
+.imagensDaReclamacao{
+    float: left;
+    height: auto;
+    width: 33.33333%;
+    margin-bottom: 15px;
+}
+
+.imgCarr{
+    margin-right: 2px;
+    border-radius: 5px;
+    padding-left: 3px;
+}
+
+.novaImagem{
+    margin-top: 5px;
+}
+
+.maisFotoUser2{
+    height: 20px;
+    width: 90px;
+    padding-left: 7px;
+    background-color: #800d0d;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: calibri;
+    margin-right: 8px;
+    float: right;
+    margin-top: 10px;
+}
+
+.maisFotoUser{
+    height: auto;
+    width: 100%;
+    background-color: #800d0d;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: calibri;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.corActive1{
+    background-color: #800d0d !important;
+    height: 5px;
+}
+
+ .maisFotoUser{
+    height: 20px;
+    width: 90px;
+    background-color: #800d0d;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: calibri;
+    margin-right: 8px;
+    float: right;
+    margin-top: 10px;
+    }
+
+@media screen and (max-width: 767px){
+    .imagensCaroussel{
+        width:100%; 
+        height:250px !important;
+    }
+
+    .corActive{
+        background-color: #800d0d !important;
+    }
+
+    .corActiveTexto{
+        color: white !important;
+    }
+
+
+    .larguraGrande{
+        width: 100% !important;	
+    }
+
+    .marginPrimeiro{
+        margin-top: 10px !important;
+        margin-bottom: 5px !important;
+    }
+
+    #imgNoPerfil{
+        width: 100% !important;
+        height: 70% !important;
+
+    }
+
+    .imgLogo{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+
+}
+
+@media screen and (max-width: 525px){
+    .divMinhaRecl {
+        height: 250px !important;
+    }
+}
+
+@media screen and (min-width: 992px){
+
+    h6{
+        margin-left: 71px;
+        margin-top: 10px;
+    }
+
+    h3{
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+
+    .marginPrimeiro{
+        margin-top: 30px !important;
+    }
+
+}
+
+
+div.col-md-6 > .glyphicon{
+    color: #337AB7;
+}
+
+.escondeBot{
+    opacity:0;
+}
+
+#botCriaRecla{
+    transition:opacity 0.15s linear;
+}
+
+#tituloRecla{
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 16px;
+    line-height: 1.42857143;
+    color: #800d0d;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
+    box-shadow: 0px 0px 0px;
+    font-weight: bold;
+}
+
+#descricaoRecla{
+    height: 177px;
+    resize: vertical;
+}
+
+.imagensRecla{
+    width: 110px;
+    height: 110px;
+    margin-left: 8px;
+}
+
+#botEnviar{
+    margin-top: 50px;
+}
+
+#tituloPagina{
+    font-family: Century Gothic;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 12px;
+    padding-top: 0px;
+}
+
+.imgRanking{
+    width: 50px;
+    height: 50px;
+}
+
+.numeroRanking{
+    margin-top: 17px;
+}
+
+.tituloRecl{
+    height: 40px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 2px solid #e4e0e0;
+    border-top: 3px solid white;
+}
+
+.localizacaoRecl{
+    height: 40px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    padding-left: 24px;
+}
+
+#textoSobreReclamacao{
+    padding: 10px;
+    text-align: justify;
+    font-style: italic;
+}
+
+#divComentarios{
+    border-top: 1px solid #e4e0e0;
+    padding: 10px;
+}
+
+.imagemPessoaComentario{
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    float: left;
+}
+
+.divTextoComent{
+    background-color: #f7f4f4;
+    box-shadow: 1px 1px 4px #909090;
+    margin-top: 20px;
+}
+
+.textoComent{
+    text-align: justify;
+    margin-top: 34px;
+    font-weight: bold;
+}
+
+.nomeUser{
+    margin-top: 13px;
+}
+
+.glypPosicao{
+    margin-right: 7px;
+    margin-top: 5px;
+    color: gray;
+    font-size: 20px;
+    transition:color 1.0s;
+}
+
+input:focus+span, select:focus+span, a:focus span, a:focus h4{
+    color: #800d0d;
+
+}
+
+.inputLogin{
+    height: 45px;
+    box-shadow: 1px 1px 4px #909090;
+    font-family: calibri;
+    font-size: 17px;
+    width: 100%;
+}
+
+.labelLogin{
+    font-family: century gothic;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.col-md-11 > form{
+    padding: 5px;
+    margin-top: 25px;
+}
+
+.inputs{
+    margin-top: 15px;
+
+}
+
+.botoes{
+    background-color: #800d0d;
+    box-shadow: 0px 0px 5px #2f0808;
+    color: white;
+    font-family: century gothic;
+    font-size: 21px;
+    margin-top: 40px;
+    border: 0px;
+}
+
+#labelENovo{
+    font-family: calibri;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 10px;
+    color: #5f5f5f;
+}
+
+.negrito{
+    font-weight: bold;
+}
+
+.botaoFoto{
+    height: 110px;
+    width: 110px;
+    border: 2px solid gray;
+    font-size: 45px;
+    padding-top: 23px;
+    color: #184369;
+}
+
+.invisivel{
+    opacity: 0.0;
+    height: 79px;
+    width: 109px;
+}
+
+
+#imgNoPerfil{
+    width: 520px;
+    height: 345px;
+}
+
+.painel{
+    box-shadow: 1px 1px 4px #9e9e9e;
+}
+
+
+
+input[type='file'] {
+    display: none
+}
+
+.imgFotoUser{
+    width: 70px;
+    height: 70px;
+    float: right;
+    margin-top: -73px;
+    margin-right: 17px;
+}
+
+
+
+#textoFotoUser{
+    float:right;
+    margin-top: 70px;
+    font-size: 14px;
+    font-family: calibri;
+}
+
+#divFotoUser{
+    width: 100%;
+    height: 115px;
+}
+
+.textoIndexReclama{
+    word-wrap: break-word;
+    text-align: justify;
+    font-family: calibri;
+    font-size: 16px;
+}
+
+.divVotacao{
+    min-height: 45px;
+    height: auto;
+    width: 100%;
+    margin-bottom: 11px;
+    padding-top: 10px;
+    border-bottom: 1px solid #e0dfdf;
+    border-top: 1px solid #e0dfdf;
+    box-shadow: 0px 0px 5px #a9a9a9;
+}
+
+.botMaisMenos{
+    background-color: rgba(255, 0, 0, 0);
+    border: 0px solid;
+    width: 4%;
+}
+
+.maisMenos{
+    font-size: 22px;
+    text-shadow: 1px 1px 11px #a9a6a6;
+}
+
+.botMais{
+    float:right;
+}
+
+.botMenos{
+    float: left;
+}
+
+.mais{
+    color: #4a4c4a;
+}
+
+.menos{
+    color: #4a4c4a;
+}
+
+.textoVotacao{
+    text-align: center;
+}
+
+.subTitulo{
+    font-family: calibri;
+    font-size: 16px;
+    width: 58%;
+    padding-left: 25px;
+}
+
+h3{
+    font-family: century gothic;
+    font-weight: bold;
+}
+
+h6{
+    font-family: Gill Sans MT;
+    font-size: 15px;
+}
+
+.divLocal{
+    padding: 7px 27px 7px 29px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.divPainelDesc{
+    box-shadow: 0px 0px 5px #a9a9a9;
+}
+
+a:focus>span{
+    color: #800d0d;
+}
+
+.divVotacaoTexto{
+    float: left;
+    width: 92%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tituloMyStreet{
+    font-size: 25px;
+    color: #800d0d;
+    font-family: Century Gothic;
+    font-weight: bold;
+}
+
+.corActive{
+    border-bottom: 3px solid #800d0d;
+}
+
+.corActiveTexto{
+    color: #800d0d;
+}
+
+.corMenuTexto{
+    color: #800d0d;
+}
+
+.glyPosiMenu{
+    margin-right: 15px;
+}
+
+#btnSair{
+    background-color: #b30909;
+    font-size: 25px;
+    font-family: Century Gothic;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0px 0px 2px 2px #920909;
+    border: 0px;
+    margin-top: 35px;
+}
+
+.infoPerfil{
+    padding: 0px 10px 10px 10px;
+    margin-bottom: 20px;
+}
+
+.botNavMenu:focus{
+    background-color: #800d0d !important;
+
+}
+.botNavMenu:focus>.corActive{
+    border-bottom: 3px solid white;
+
+}
+
+
+.inputComentario{
+    float: left;
+    height: 45px;
+    box-shadow: 1px 1px 4px #909090;
+    font-family: calibri;
+    font-size: 17px;
+    width: 83%;
+}
+
+.botaoComentario{
+    float: right;
+    height: 45px;
+    box-shadow: 1px 1px 4px #909090;
+    font-size: 11px;
+    width: 15%;
+    color: #800d0d;
+    font-weight: bold;
+}
+
+.marginPrimeiro{
+    margin-top: 0px;
+}
+
+
+.larguraDesc{
+    padding-left: 0px;
+    padding-right: 0px;
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.nRanking{
+    font-size: 21px;
+    font-family: century gothic;
+    color: #800d0d;
+}
+
+.divNRanking{
+    width: 40px;
+    height: 100%;
+    border-right: 1px solid #cacaca;
+    float: left;
+    margin-right: 11px;
+    margin-top: 12px;
+}
+
+.linkRanking{
+    margin-left: 7px;
+}
+
+.divMinhaRecl{
+    height: 240px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.paddingDiv{
+    padding: 0px;
+}
+
+.textoLocalMinha{
+    margin-top: 5px;
+}
+
+.textoSobreMinha{
+    padding: 10px;
+    text-align: justify;
+    font-style: italic;
+}
+
+.fotoMinhaRecl{
+    width: 100% !important;
+    height: 100%;
+
+}
+
+.textareaMinha{
+    height: 138px;
+    resize: none;
+    margin: 0px;
+    width: 254px;
+    border: 0px solid;
+    overflow: hidden;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+textarea.textareaMinha:focus{
+    outline: none !important;
+}
+
+.icon-up {
+    color: green;
+}
+.icon-down{
+    color: red;
+}
+
+.imagemPessoa2{
+    width: 140px;
+    height: 140px;
+    float: left;
+    margin-right: 15px;
+}
+
+
+.TituloComFoto2{
+    height: auto;
+    min-height: 140px;
+    padding-left: 25px;
+}	
+
+.nomeUsuarioRecla{
+    font-size: 34px;
+    margin-top: 20px;
+}
+
+/*--------------Nâo excluir*/
+.excluiComentario {
+    float: right;
+    margin-right: 13px;
+    margin-top:5px;
+    color: #989898;
+}
+
+.editaComentario {
+    float: right;
+    margin-right: 13px;
+    margin-top:5px;
+    color: #989898;
+}
+
+#listaVazia {
+    background-image: url("bebera5.png");
+}
+
+.textareaStilo{
+    resize: vertical;
+}
+
+/*  
+  label {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: #bdc3c7;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+*/

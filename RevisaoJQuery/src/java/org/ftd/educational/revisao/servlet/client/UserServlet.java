@@ -34,24 +34,20 @@ public class UserServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     private static final String PERSISTENCE_UNIT_NAME = "persistenciaPU";
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
-            UserDAO dao = new UserDAO(factory);
-            List<User> user = null;
-            
-            user = dao.findUserEntities();
-            
-            request.setAttribute("allUsers", user);
-            
-            request.getRequestDispatcher("WEB-INF/views/users.jsp").forward(request, response);
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        UserDAO dao = new UserDAO(factory);
+        List<User> user = null;
 
-        }
+        user = dao.findUserEntities();
+
+        request.setAttribute("allUsers", user);
+
+        request.getRequestDispatcher("mvcmenu?do=showclient").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
