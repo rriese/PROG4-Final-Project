@@ -6,8 +6,6 @@
 package org.ftd.educational.revisao.web.controllers;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.servlet.ServletException;
@@ -18,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.ftd.educational.catolica.prog4.daos.UserDAO;
 import org.ftd.educational.catolica.prog4.entities.User;
+import org.ftd.educational.revisao.util.Util;
 
 /**
  *
@@ -35,15 +34,13 @@ public class AuthenticateControllerServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    private static final String PERSISTENCE_UNIT_NAME = "persistenciaPU";
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(Util.PERSISTENCE_UNIT_NAME);
         UserDAO dao = new UserDAO(factory);
         User user = null;
         String login = request.getParameter("usuario");
@@ -57,14 +54,14 @@ public class AuthenticateControllerServlet extends HttpServlet {
             HttpSession session = request.getSession(true);
             session.setAttribute("userid", Long.toString(user.getId()));
             session.setAttribute("username", user.getName());
-            request.getRequestDispatcher("mvcmenu?do=initial").forward(request, response);
+            request.getRequestDispatcher("appcontroller?do=initial").forward(request, response);
         } else {
             StringBuilder strB = new StringBuilder();
             strB.append("<div class=\"alert alert-danger\">");
             strB.append("<center><strong>Erro!</strong> Login e/ou senha incorretos.</center>");
             strB.append("</div>");
             request.setAttribute("msg", strB);
-            request.getRequestDispatcher("clienteLogin.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 

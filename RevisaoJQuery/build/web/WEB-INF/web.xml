@@ -16,6 +16,10 @@
         <servlet-name>Profile</servlet-name>
         <servlet-class>org.ftd.educational.revisao.servlet.client.UserServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>NewClientServlet</servlet-name>
+        <servlet-class>org.ftd.educational.revisao.web.controllers.NewClientServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ShowParameterServlet</servlet-name>
         <url-pattern>/ShowParameterServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>Profile</servlet-name>
         <url-pattern>/Profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewClientServlet</servlet-name>
+        <url-pattern>/NewClientServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

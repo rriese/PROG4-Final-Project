@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author rafael.riese
  */
-@WebFilter(filterName = "MainFilter", urlPatterns = {"/mvcmenu", "/WEB-INF/**"})
+@WebFilter(filterName = "MainFilter", urlPatterns = {"/appcontroller", "/user", "/WEB-INF/**"})
 public class MainFilter implements Filter {
     
     private static final boolean debug = true;
@@ -126,7 +126,7 @@ public class MainFilter implements Filter {
         if (isUserAuthorized) {
             chain.doFilter(request, response);
         } else {
-            req.getRequestDispatcher("clienteLogin.jsp").forward(req, res);
+            req.getRequestDispatcher("index.jsp").forward(req, res);
         }
     }
 

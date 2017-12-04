@@ -1,88 +1,59 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/2/2e/Mackenzie_M.png">
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="container ">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle botNavMenu" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1">
-                        <span class="icon-bar corActive">
-                        </span>
-                        <span class="icon-bar corActive">
-                        </span>
-                        <span class="icon-bar corActive">
-                        </span>
-                    </button>
-                    <a class="navbar-brand" href="#"><p class="tituloMyStreet"><b>Riese's Shop</b></p></a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#"><p class="corMenuTexto"><span class="glyphicon glyphicon-home glyPosiMenu"></span> Home</p></a>
-                        </li>
-                        <li class="corActive">
-                            <a href=""><p class="corActiveTexto"><span class="glyphicon glyphicon-user glyPosiMenu"></span> Bem Vindo(a) ${userName}</p></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container larguraGrande marginPrimeiro">
-            <div class="row">
-                <div id="conteudo" class="col-md-12">
-                    <div class="thumbnail">
-                        <div class="caption">
-                            <a href="mvcmenu?do=showclient">
-                                <button type="button" class="btn btn-default btn-lg btn-block glyphicon glyphicon-user">
-                                    Clientes
-                                </button>
-                            </a>
-                            <a href="EditaPerfil">
-                                <button type="button" class="btn btn-default btn-lg btn-block glyphicon glyphicon-lock">
-                                    Funcionários
-                                </button>
-                            </a>
-                            <a href="EditaSenha">
-                                <button type="button" class="btn btn-default btn-lg btn-block glyphicon glyphicon-glass">
-                                    Produtos
-                                </button>
-                            </a>
-                            <a href="EditaSenha">
-                                <button type="button" class="btn btn-default btn-lg btn-block glyphicon glyphicon-shopping-cart">
-                                    Pedidos
-                                </button>
-                            </a>
-                            <a href="logout">
-                                <button type="button" class="btn btn-default btn-lg btn-block glyphicon glyphicon-log-out">
-                                    Sair
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 ">
-                        <p>
-                            &copy; Riese's Shop - Todos os direitos reservados.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+<html>    
 
+    <%@ include file="/WEB-INF/views/layout/links.jsp" %>
+
+    <body>
+
+        <%@ include file="/WEB-INF/views/layout/menu.jsp" %>
+
+        <div class="container larguraGrande">
+            <div class="row marginPrimeiro">
+                <a href="user?do=showclient">
+                    <div class="col-xs-12 col-sm-6 col-md-4 paddingDiv" id="link">
+                        <div class="divImg">
+                            <center><img src="http://www.encontresuafranquia.com.br/wp-content/uploads/2015/07/cliente.jpg" class="foto"></center>
+                        </div>
+                        <div class="textoImg">Clientes</div>
+                    </div>
+                </a>
+                <a href="../Employees">
+                    <div class="col-xs-12 col-sm-6 col-md-4 paddingDiv" id="link">
+                        <div class="divImg">
+                            <center><img src="http://1.bp.blogspot.com/_LSxW2sdp8xc/S4qFaZ4LnPI/AAAAAAAALx8/w3KFxQBiuw4/s320/manutencao.png" class="foto"></center>
+                        </div>
+                        <div class="textoImg">Funcionários</div>
+                    </div>
+                </a>
+                <a href="../Products">
+                    <div class="col-xs-12 col-sm-6 col-md-4 paddingDiv" id="link">
+                        <div class="divImg">
+                            <center><img src="https://safenet.gemalto.com/uploadedImages/images/Icons/Blue-Token-Icon.png" class="foto"></center>
+                        </div>
+                        <div class="textoImg">Produtos</div>
+                    </div>
+                </a>
+                <a href="../Orders">
+                    <div class="col-xs-12 col-sm-6 col-md-4 paddingDiv" id="link">
+                        <div class="divImg">
+                            <center><img src="https://imgs.tanlupstatic.com/?url=https%3A%2F%2Fqol.s3.amazonaws.com%2Fproducts%2F549-b07928906ce5302e515c13239281f3a3.png&w=300&client=trych&filter=antialias&fmt=png&q=75&opt=1&sig=41638391cf5b4f67d040aac5b269f6f6df779a46" class="foto"></center>
+                        </div>
+                        <div class="textoImg">Pedidos</div>
+                    </div>
+                </a>
+                <a href="../Historic">
+                    <div class="col-xs-12 col-sm-6 col-md-4 paddingDiv" id="link">
+                        <div class="divImg">
+                            <center><img src="http://www.redstarresume.com/wp-content/uploads/2013/09/executive_search.jpg" class="foto"></center>
+                        </div>
+                        <div class="textoImg">Histórico de Compras</div>
+                    </div>
+                </a>
+            </div>
+        </div>                
+        <br>
+
+        <%@ include file="/WEB-INF/views/layout/footer.jsp" %>
+
+    </body>
 </html>

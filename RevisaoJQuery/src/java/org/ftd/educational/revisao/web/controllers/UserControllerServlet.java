@@ -1,21 +1,31 @@
 package org.ftd.educational.revisao.web.controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.ftd.educational.catolica.prog4.daos.UserDAO;
+import org.ftd.educational.catolica.prog4.daos.exceptions.NonexistentEntityException;
+import org.ftd.educational.catolica.prog4.entities.User;
+import org.ftd.educational.revisao.util.Util;
 
 /**
  *
- * @author Fabio Tavares Dippold
- *
+ * @author ftdippold
  */
 @WebServlet(name = "UserControllerServlet", urlPatterns = {"/user"}, initParams = {
-    @WebInitParam(name = "do", value = "")})
+    @WebInitParam(name = "do", value = ""),
+    @WebInitParam(name = "clientId", value = "")
+})
+
 public class UserControllerServlet extends HttpServlet {
 
     private static final long serialVersionUID = -1587237767624179860L;
@@ -36,17 +46,15 @@ public class UserControllerServlet extends HttpServlet {
         String action = this.readParameter(request, "do");
         String nextAction;
         switch (action) {
-            case "lstmodel":
-                nextAction = buildLstModel(request, response);
+            case "showclient":
+                nextAction = buildClientModel(request, response);
                 break;
-            case "addmodel":
-                nextAction = buildAddModel(request, response);
+            case "deleteclient":
+                nextAction = removeClient(request, response, Long.parseLong(request.getParameter("clientId")));
                 break;
-            case "updmodel":
-                nextAction = buildUpdModel(request, response);
-                break;
-            case "readmodel":
-                nextAction = buildReadModel(request, response);
+            case "editclient":
+                String teste = request.getParameter("clientId");
+                nextAction = editClient(request, response, Long.parseLong(request.getParameter("clientId")));
                 break;
             case "add":
                 nextAction = doAddNew(request, response);
@@ -65,16 +73,74 @@ public class UserControllerServlet extends HttpServlet {
         request.getRequestDispatcher(nextAction).forward(request, response);
     }
 
+    public void setUserToMenu(HttpServletRequest request) {
+        request.setAttribute("userName", (String) request.getSession().getAttribute("username"));
+    }
+
     private String buildLstModel(HttpServletRequest request, HttpServletResponse response) {
-        String nextAction = "/WEB-INF/views/LstUserView.jsp";
+        String nextAction = "/WEB-INF/views/index.jsp";
+
+        this.setUserToMenu(request);
 
         return nextAction;
     }
 
-    private String buildAddModel(HttpServletRequest request, HttpServletResponse response) {
-        String nextAction = "/WEB-INF/views/AddUserView.jsp";
+    private String editClient(HttpServletRequest request, HttpServletResponse response, Long userId) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(Util.PERSISTENCE_UNIT_NAME);
+        UserDAO dao = new UserDAO(factory);
+        User userDb = null;
+
+        if (request.getParameter("id") != null) {
+            String nome = request.getParameter("name");
+            String cpf = request.getParameter("cpf");
+            String email = request.getParameter("email");
+            String user = request.getParameter("user");
+            String passwd = request.getParameter("passwd");
+
+            if (nome != null && cpf != null && email != null && user != null && passwd != null) {
+                userDb = new User(nome, cpf, email, user, passwd);
+                try {
+                    dao.edit(userDb);
+                } catch (Exception ex) {
+                    Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            return "/WEB-INF/views/client/users.jsp";
+        } else {
+            userDb = dao.findUser(userId);
+        }
+
+        request.setAttribute("user", userDb);
+
+        return "/WEB-INF/views/client/form.jsp";
+    }
+
+    private String buildClientModel(HttpServletRequest request, HttpServletResponse response) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory(Util.PERSISTENCE_UNIT_NAME);
+        UserDAO dao = new UserDAO(factory);
+        List<User> user = null;
+
+        user = dao.findUserEntities();
+
+        request.setAttribute("allUsers", user);
+        this.setUserToMenu(request);
+
+        String nextAction = "/WEB-INF/views/client/users.jsp";
 
         return nextAction;
+    }
+
+    private String removeClient(HttpServletRequest request, HttpServletResponse response, Long userId) {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistenciaPU");
+        UserDAO dao = new UserDAO(factory);
+
+        try {
+            dao.destroy(userId);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(UserControllerServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return "/WEB-INF/views/users.jsp";
     }
 
     private String buildUpdModel(HttpServletRequest request, HttpServletResponse response) {
@@ -126,5 +192,44 @@ public class UserControllerServlet extends HttpServlet {
 
         return value;
     }
-}
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}
